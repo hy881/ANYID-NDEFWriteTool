@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDEFReadWriteTool.bean;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,7 +86,6 @@ namespace NDEFReadWriteTool
         {
             Byte[] buffer = new Byte[255];
             ushort[] addrArray = new ushort[2];
-            string deviceTypeStr = "";
             HFREADER_VERSION pVersion = new HFREADER_VERSION();
             pVersion.type = new byte[hfReaderDll.HFREADER_VERSION_SIZE];
             pVersion.sv = new byte[hfReaderDll.HFREADER_VERSION_SIZE];
@@ -95,8 +95,11 @@ namespace NDEFReadWriteTool
             {
                 if (pVersion.result.flag == 0)
                 {
-                    deviceTypeStr = System.Text.Encoding.Default.GetString(pVersion.type).Replace("\0", "");
-                    fun1(deviceTypeStr);
+                    ReaderVersion readerVersion=new ReaderVersion();
+                    readerVersion.Model = System.Text.Encoding.Default.GetString(pVersion.type).Replace("\0", "");
+                    readerVersion.HardwareVersion = System.Text.Encoding.Default.GetString(pVersion.hv).Replace("\0", "");
+                    readerVersion.SoftwareVersion = System.Text.Encoding.Default.GetString(pVersion.sv).Replace("\0", "");
+                    fun1(readerVersion);
                 }
             }
             else
@@ -106,7 +109,7 @@ namespace NDEFReadWriteTool
 
         }
         /// <summary>
-        /// 
+        /// 配置读写器参数
         /// </summary>
         /// <param name="tagType"></param>
         /// <param name="fun1"></param>
@@ -448,6 +451,17 @@ namespace NDEFReadWriteTool
                 }
             }
             return true;
+        }
+        public static void closeReader(int connect_type)
+        {
+            if (connect_type==0)
+            {
+                hfReaderDll.hfReaderCloseUsb(hSerial);
+            }
+            else
+            {
+                hfReaderDll.hfReaderClosePort(hSerial);
+            }
         }
 
     }

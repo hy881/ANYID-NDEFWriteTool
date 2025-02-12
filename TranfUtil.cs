@@ -18,6 +18,8 @@ namespace NDEFReadWriteTool
             return str;
         }
 
+
+
         /// <summary>
         /// 16进制字符串转成byte[]
         /// </summary>

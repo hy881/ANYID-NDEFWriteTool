@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace NDEFReadWriteTool
 {
-    public partial class Form1 : UIForm
+    public partial class DialogForm : UIPage,ITranslate
     {
-        public Form1()
+        public DialogForm()
         {
             InitializeComponent();
         }
