@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NDEFReadWriteTool.bean
 {
-    internal class ReaderVersion
+    public class ReaderVersion
     {
         public string Model { get; set; }
         public string HardwareVersion { get; set; }

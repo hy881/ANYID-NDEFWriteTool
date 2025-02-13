@@ -28,48 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uiTabControlMenu1 = new Sunny.UI.UITabControlMenu();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
             this.uiGroupBox2 = new Sunny.UI.UIGroupBox();
-            this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
-            this.uiTextBox3 = new Sunny.UI.UITextBox();
-            this.uiTextBox2 = new Sunny.UI.UITextBox();
-            this.uiTextBox1 = new Sunny.UI.UITextBox();
+            this.btn_refresh = new Sunny.UI.UISymbolButton();
+            this.txt_hardwave = new Sunny.UI.UITextBox();
+            this.txt_softwave = new Sunny.UI.UITextBox();
+            this.txt_model = new Sunny.UI.UITextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
-            this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
-            this.switch_connect = new Sunny.UI.UISwitch();
-            this.comb_com = new Sunny.UI.UIComboBox();
-            this.txt_param1 = new Sunny.UI.UITextBox();
-            this.uiTextBox7 = new Sunny.UI.UITextBox();
-            this.combo_baudrate = new Sunny.UI.UIComboBox();
             this.txt_param2 = new Sunny.UI.UITextBox();
+            this.switch_connect = new Sunny.UI.UISwitch();
+            this.txt_param1 = new Sunny.UI.UITextBox();
             this.comb_connect_type = new Sunny.UI.UIComboBox();
             this.lab_title2 = new System.Windows.Forms.Label();
+            this.comb_com = new Sunny.UI.UIComboBox();
+            this.uiTextBox7 = new Sunny.UI.UITextBox();
+            this.combo_baudrate = new Sunny.UI.UIComboBox();
             this.lab_title1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.uiSymbolButton6 = new Sunny.UI.UISymbolButton();
-            this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
-            this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
-            this.uiSymbolButton7 = new Sunny.UI.UISymbolButton();
-            this.uiSymbolButton4 = new Sunny.UI.UISymbolButton();
+            this.btn_url_clear = new Sunny.UI.UISymbolButton();
+            this.btn_url_save = new Sunny.UI.UISymbolButton();
+            this.btn_url_write = new Sunny.UI.UISymbolButton();
+            this.btn_url_read = new Sunny.UI.UISymbolButton();
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
-            this.uiTextBox4 = new Sunny.UI.UITextBox();
-            this.uiTextBox5 = new Sunny.UI.UITextBox();
-            this.uiTextBox6 = new Sunny.UI.UITextBox();
+            this.txt_url = new Sunny.UI.UITextBox();
+            this.txt_cc = new Sunny.UI.UITextBox();
+            this.txt_uid = new Sunny.UI.UITextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
+            this.dgv_url = new Sunny.UI.UIDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +79,6 @@
             this.uiNavBar1 = new Sunny.UI.UINavBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
             this.uiTabControlMenu1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
@@ -88,7 +86,7 @@
             this.comb_com.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_url)).BeginInit();
             this.uiNavBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -121,7 +119,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.MistyRose;
-            this.tabPage1.Controls.Add(this.uiGroupBox4);
+            this.tabPage1.Controls.Add(this.uiRadioButtonGroup1);
             this.tabPage1.Controls.Add(this.uiGroupBox2);
             this.tabPage1.Controls.Add(this.uiGroupBox1);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
@@ -131,12 +129,34 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "读写器配置";
             // 
+            // uiRadioButtonGroup1
+            // 
+            this.uiRadioButtonGroup1.FillColor = System.Drawing.Color.MistyRose;
+            this.uiRadioButtonGroup1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.uiRadioButtonGroup1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiRadioButtonGroup1.Items.AddRange(new object[] {
+            "ISO15693 卡",
+            "ISO14443A M1 卡",
+            "ISO14443A M0 卡"});
+            this.uiRadioButtonGroup1.Location = new System.Drawing.Point(15, 265);
+            this.uiRadioButtonGroup1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiRadioButtonGroup1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiRadioButtonGroup1.Name = "uiRadioButtonGroup1";
+            this.uiRadioButtonGroup1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiRadioButtonGroup1.RadioButtonColor = System.Drawing.Color.Red;
+            this.uiRadioButtonGroup1.RectColor = System.Drawing.Color.Red;
+            this.uiRadioButtonGroup1.Size = new System.Drawing.Size(226, 126);
+            this.uiRadioButtonGroup1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButtonGroup1.TabIndex = 3;
+            this.uiRadioButtonGroup1.Text = "选择卡片类型";
+            this.uiRadioButtonGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // uiGroupBox2
             // 
-            this.uiGroupBox2.Controls.Add(this.uiSymbolButton2);
-            this.uiGroupBox2.Controls.Add(this.uiTextBox3);
-            this.uiGroupBox2.Controls.Add(this.uiTextBox2);
-            this.uiGroupBox2.Controls.Add(this.uiTextBox1);
+            this.uiGroupBox2.Controls.Add(this.btn_refresh);
+            this.uiGroupBox2.Controls.Add(this.txt_hardwave);
+            this.uiGroupBox2.Controls.Add(this.txt_softwave);
+            this.uiGroupBox2.Controls.Add(this.txt_model);
             this.uiGroupBox2.Controls.Add(this.label4);
             this.uiGroupBox2.Controls.Add(this.label5);
             this.uiGroupBox2.Controls.Add(this.label6);
@@ -153,74 +173,74 @@
             this.uiGroupBox2.Text = "设备信息";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiSymbolButton2
+            // btn_refresh
             // 
-            this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton2.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.uiSymbolButton2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton2.Location = new System.Drawing.Point(38, 197);
-            this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton2.Name = "uiSymbolButton2";
-            this.uiSymbolButton2.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.uiSymbolButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.uiSymbolButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.uiSymbolButton2.Size = new System.Drawing.Size(212, 35);
-            this.uiSymbolButton2.Symbol = 361473;
-            this.uiSymbolButton2.TabIndex = 6;
-            this.uiSymbolButton2.Text = "刷新";
-            this.uiSymbolButton2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_refresh.FillColor = System.Drawing.Color.Red;
+            this.btn_refresh.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_refresh.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_refresh.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_refresh.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_refresh.Location = new System.Drawing.Point(38, 197);
+            this.btn_refresh.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.RectColor = System.Drawing.Color.Red;
+            this.btn_refresh.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_refresh.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_refresh.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_refresh.Size = new System.Drawing.Size(212, 35);
+            this.btn_refresh.Symbol = 361473;
+            this.btn_refresh.TabIndex = 6;
+            this.btn_refresh.Text = "刷新";
+            this.btn_refresh.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
-            // uiTextBox3
+            // txt_hardwave
             // 
-            this.uiTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox3.Location = new System.Drawing.Point(108, 139);
-            this.uiTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox3.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox3.Name = "uiTextBox3";
-            this.uiTextBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox3.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox3.ShowText = false;
-            this.uiTextBox3.Size = new System.Drawing.Size(164, 41);
-            this.uiTextBox3.TabIndex = 5;
-            this.uiTextBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox3.Watermark = "";
+            this.txt_hardwave.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_hardwave.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_hardwave.Location = new System.Drawing.Point(108, 139);
+            this.txt_hardwave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_hardwave.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_hardwave.Name = "txt_hardwave";
+            this.txt_hardwave.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_hardwave.RectColor = System.Drawing.Color.Red;
+            this.txt_hardwave.ShowText = false;
+            this.txt_hardwave.Size = new System.Drawing.Size(164, 41);
+            this.txt_hardwave.TabIndex = 5;
+            this.txt_hardwave.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_hardwave.Watermark = "";
             // 
-            // uiTextBox2
+            // txt_softwave
             // 
-            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox2.Location = new System.Drawing.Point(108, 88);
-            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox2.Name = "uiTextBox2";
-            this.uiTextBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox2.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox2.ShowText = false;
-            this.uiTextBox2.Size = new System.Drawing.Size(164, 41);
-            this.uiTextBox2.TabIndex = 4;
-            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox2.Watermark = "";
+            this.txt_softwave.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_softwave.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_softwave.Location = new System.Drawing.Point(108, 88);
+            this.txt_softwave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_softwave.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_softwave.Name = "txt_softwave";
+            this.txt_softwave.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_softwave.RectColor = System.Drawing.Color.Red;
+            this.txt_softwave.ShowText = false;
+            this.txt_softwave.Size = new System.Drawing.Size(164, 41);
+            this.txt_softwave.TabIndex = 4;
+            this.txt_softwave.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_softwave.Watermark = "";
             // 
-            // uiTextBox1
+            // txt_model
             // 
-            this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox1.Location = new System.Drawing.Point(108, 37);
-            this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox1.Name = "uiTextBox1";
-            this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox1.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox1.ShowText = false;
-            this.uiTextBox1.Size = new System.Drawing.Size(164, 41);
-            this.uiTextBox1.TabIndex = 3;
-            this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox1.Watermark = "";
+            this.txt_model.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_model.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_model.Location = new System.Drawing.Point(108, 37);
+            this.txt_model.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_model.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_model.Name = "txt_model";
+            this.txt_model.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_model.RectColor = System.Drawing.Color.Red;
+            this.txt_model.ShowText = false;
+            this.txt_model.Size = new System.Drawing.Size(164, 41);
+            this.txt_model.TabIndex = 3;
+            this.txt_model.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_model.Watermark = "";
             // 
             // label4
             // 
@@ -251,7 +271,6 @@
             // 
             // uiGroupBox1
             // 
-            this.uiGroupBox1.Controls.Add(this.uiSymbolButton1);
             this.uiGroupBox1.Controls.Add(this.txt_param2);
             this.uiGroupBox1.Controls.Add(this.switch_connect);
             this.uiGroupBox1.Controls.Add(this.txt_param1);
@@ -274,29 +293,21 @@
             this.uiGroupBox1.Text = "通信配置";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiSymbolButton1
+            // txt_param2
             // 
-            this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.uiSymbolButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.uiSymbolButton1.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.uiSymbolButton1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiSymbolButton1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiSymbolButton1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton1.IsCircle = true;
-            this.uiSymbolButton1.LightColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.uiSymbolButton1.Location = new System.Drawing.Point(6, 197);
-            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton1.Name = "uiSymbolButton1";
-            this.uiSymbolButton1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.uiSymbolButton1.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-            this.uiSymbolButton1.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiSymbolButton1.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiSymbolButton1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiSymbolButton1.Symbol = 61453;
-            this.uiSymbolButton1.TabIndex = 7;
-            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_param2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_param2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_param2.Location = new System.Drawing.Point(100, 139);
+            this.txt_param2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_param2.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_param2.Name = "txt_param2";
+            this.txt_param2.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_param2.RectColor = System.Drawing.Color.Red;
+            this.txt_param2.ShowText = false;
+            this.txt_param2.Size = new System.Drawing.Size(122, 41);
+            this.txt_param2.TabIndex = 6;
+            this.txt_param2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_param2.Watermark = "";
             // 
             // switch_connect
             // 
@@ -309,7 +320,58 @@
             this.switch_connect.SwitchShape = Sunny.UI.UISwitch.UISwitchShape.Square;
             this.switch_connect.TabIndex = 6;
             this.switch_connect.Text = "uiSwitch1";
-            this.switch_connect.ValueChanged += new Sunny.UI.UISwitch.OnValueChanged(this.switch_connect_ValueChanged);
+            // 
+            // txt_param1
+            // 
+            this.txt_param1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_param1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_param1.Location = new System.Drawing.Point(100, 88);
+            this.txt_param1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_param1.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_param1.Name = "txt_param1";
+            this.txt_param1.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_param1.RectColor = System.Drawing.Color.Red;
+            this.txt_param1.ShowText = false;
+            this.txt_param1.Size = new System.Drawing.Size(122, 41);
+            this.txt_param1.TabIndex = 7;
+            this.txt_param1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_param1.Watermark = "";
+            // 
+            // comb_connect_type
+            // 
+            this.comb_connect_type.DataSource = null;
+            this.comb_connect_type.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.comb_connect_type.FillColor = System.Drawing.Color.White;
+            this.comb_connect_type.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comb_connect_type.ItemHoverColor = System.Drawing.Color.Red;
+            this.comb_connect_type.ItemRectColor = System.Drawing.Color.Red;
+            this.comb_connect_type.Items.AddRange(new object[] {
+            "USB",
+            "COM",
+            "TCP"});
+            this.comb_connect_type.ItemSelectBackColor = System.Drawing.Color.Red;
+            this.comb_connect_type.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.comb_connect_type.Location = new System.Drawing.Point(100, 37);
+            this.comb_connect_type.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comb_connect_type.MinimumSize = new System.Drawing.Size(63, 0);
+            this.comb_connect_type.Name = "comb_connect_type";
+            this.comb_connect_type.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.comb_connect_type.RectColor = System.Drawing.Color.Red;
+            this.comb_connect_type.Size = new System.Drawing.Size(122, 41);
+            this.comb_connect_type.SymbolSize = 24;
+            this.comb_connect_type.TabIndex = 3;
+            this.comb_connect_type.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.comb_connect_type.Watermark = "";
+            this.comb_connect_type.SelectedIndexChanged += new System.EventHandler(this.comb_connect_type_SelectedIndexChanged);
+            // 
+            // lab_title2
+            // 
+            this.lab_title2.AutoSize = true;
+            this.lab_title2.Location = new System.Drawing.Point(3, 151);
+            this.lab_title2.Name = "lab_title2";
+            this.lab_title2.Size = new System.Drawing.Size(79, 16);
+            this.lab_title2.TabIndex = 2;
+            this.lab_title2.Text = "选择协议:";
             // 
             // comb_com
             // 
@@ -338,22 +400,6 @@
             this.comb_com.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.comb_com.Visible = false;
             this.comb_com.Watermark = "";
-            // 
-            // txt_param1
-            // 
-            this.txt_param1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_param1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_param1.Location = new System.Drawing.Point(100, 88);
-            this.txt_param1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_param1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_param1.Name = "txt_param1";
-            this.txt_param1.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_param1.RectColor = System.Drawing.Color.Red;
-            this.txt_param1.ShowText = false;
-            this.txt_param1.Size = new System.Drawing.Size(122, 41);
-            this.txt_param1.TabIndex = 7;
-            this.txt_param1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_param1.Watermark = "";
             // 
             // uiTextBox7
             // 
@@ -398,58 +444,6 @@
             this.combo_baudrate.Visible = false;
             this.combo_baudrate.Watermark = "";
             // 
-            // txt_param2
-            // 
-            this.txt_param2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_param2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txt_param2.Location = new System.Drawing.Point(100, 139);
-            this.txt_param2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_param2.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_param2.Name = "txt_param2";
-            this.txt_param2.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_param2.RectColor = System.Drawing.Color.Red;
-            this.txt_param2.ShowText = false;
-            this.txt_param2.Size = new System.Drawing.Size(122, 41);
-            this.txt_param2.TabIndex = 6;
-            this.txt_param2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_param2.Watermark = "";
-            // 
-            // comb_connect_type
-            // 
-            this.comb_connect_type.DataSource = null;
-            this.comb_connect_type.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
-            this.comb_connect_type.FillColor = System.Drawing.Color.White;
-            this.comb_connect_type.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comb_connect_type.ItemHoverColor = System.Drawing.Color.Red;
-            this.comb_connect_type.ItemRectColor = System.Drawing.Color.Red;
-            this.comb_connect_type.Items.AddRange(new object[] {
-            "USB",
-            "COM",
-            "TCP"});
-            this.comb_connect_type.ItemSelectBackColor = System.Drawing.Color.Red;
-            this.comb_connect_type.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.comb_connect_type.Location = new System.Drawing.Point(100, 37);
-            this.comb_connect_type.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comb_connect_type.MinimumSize = new System.Drawing.Size(63, 0);
-            this.comb_connect_type.Name = "comb_connect_type";
-            this.comb_connect_type.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.comb_connect_type.RectColor = System.Drawing.Color.Red;
-            this.comb_connect_type.Size = new System.Drawing.Size(122, 41);
-            this.comb_connect_type.SymbolSize = 24;
-            this.comb_connect_type.TabIndex = 3;
-            this.comb_connect_type.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.comb_connect_type.Watermark = "";
-            this.comb_connect_type.SelectedIndexChanged += new System.EventHandler(this.comb_connect_type_SelectedIndexChanged);
-            // 
-            // lab_title2
-            // 
-            this.lab_title2.AutoSize = true;
-            this.lab_title2.Location = new System.Drawing.Point(3, 151);
-            this.lab_title2.Name = "lab_title2";
-            this.lab_title2.Size = new System.Drawing.Size(79, 16);
-            this.lab_title2.TabIndex = 2;
-            this.lab_title2.Text = "选择协议:";
-            // 
             // lab_title1
             // 
             this.lab_title1.AutoSize = true;
@@ -471,105 +465,107 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.MistyRose;
-            this.tabPage2.Controls.Add(this.uiSymbolButton6);
-            this.tabPage2.Controls.Add(this.uiSymbolButton5);
-            this.tabPage2.Controls.Add(this.uiSymbolButton3);
-            this.tabPage2.Controls.Add(this.uiSymbolButton7);
-            this.tabPage2.Controls.Add(this.uiSymbolButton4);
+            this.tabPage2.Controls.Add(this.btn_url_clear);
+            this.tabPage2.Controls.Add(this.btn_url_save);
+            this.tabPage2.Controls.Add(this.btn_url_write);
+            this.tabPage2.Controls.Add(this.btn_url_read);
             this.tabPage2.Controls.Add(this.uiGroupBox3);
-            this.tabPage2.Controls.Add(this.uiDataGridView1);
+            this.tabPage2.Controls.Add(this.dgv_url);
             this.tabPage2.Location = new System.Drawing.Point(201, 0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(611, 396);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "读写URL";
             // 
-            // uiSymbolButton6
+            // btn_url_clear
             // 
-            this.uiSymbolButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton6.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton6.Location = new System.Drawing.Point(462, 148);
-            this.uiSymbolButton6.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton6.Name = "uiSymbolButton6";
-            this.uiSymbolButton6.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton6.Size = new System.Drawing.Size(137, 48);
-            this.uiSymbolButton6.Symbol = 363529;
-            this.uiSymbolButton6.TabIndex = 16;
-            this.uiSymbolButton6.Text = "清空表单";
-            this.uiSymbolButton6.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_clear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_url_clear.FillColor = System.Drawing.Color.Red;
+            this.btn_url_clear.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_clear.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_clear.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_clear.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_clear.Location = new System.Drawing.Point(471, 116);
+            this.btn_url_clear.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_url_clear.Name = "btn_url_clear";
+            this.btn_url_clear.RectColor = System.Drawing.Color.Red;
+            this.btn_url_clear.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_clear.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_clear.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_clear.Size = new System.Drawing.Size(137, 48);
+            this.btn_url_clear.Symbol = 363529;
+            this.btn_url_clear.TabIndex = 16;
+            this.btn_url_clear.Text = "清空表单";
+            this.btn_url_clear.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
-            // uiSymbolButton5
+            // btn_url_save
             // 
-            this.uiSymbolButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton5.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton5.Location = new System.Drawing.Point(301, 148);
-            this.uiSymbolButton5.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton5.Name = "uiSymbolButton5";
-            this.uiSymbolButton5.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton5.Size = new System.Drawing.Size(137, 48);
-            this.uiSymbolButton5.Symbol = 557697;
-            this.uiSymbolButton5.TabIndex = 15;
-            this.uiSymbolButton5.Text = "保存表单";
-            this.uiSymbolButton5.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_url_save.FillColor = System.Drawing.Color.Red;
+            this.btn_url_save.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_save.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_save.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_save.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_save.Location = new System.Drawing.Point(310, 116);
+            this.btn_url_save.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_url_save.Name = "btn_url_save";
+            this.btn_url_save.RectColor = System.Drawing.Color.Red;
+            this.btn_url_save.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_save.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_save.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_save.Size = new System.Drawing.Size(137, 48);
+            this.btn_url_save.Symbol = 557697;
+            this.btn_url_save.TabIndex = 15;
+            this.btn_url_save.Text = "保存表单";
+            this.btn_url_save.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
-            // uiSymbolButton3
+            // btn_url_write
             // 
-            this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton3.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton3.Location = new System.Drawing.Point(462, 86);
-            this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton3.Name = "uiSymbolButton3";
-            this.uiSymbolButton3.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton3.Size = new System.Drawing.Size(137, 48);
-            this.uiSymbolButton3.Symbol = 361508;
-            this.uiSymbolButton3.TabIndex = 14;
-            this.uiSymbolButton3.Text = "写标签";
-            this.uiSymbolButton3.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_write.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_url_write.FillColor = System.Drawing.Color.Red;
+            this.btn_url_write.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_write.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_write.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_write.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_write.Location = new System.Drawing.Point(471, 54);
+            this.btn_url_write.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_url_write.Name = "btn_url_write";
+            this.btn_url_write.RectColor = System.Drawing.Color.Red;
+            this.btn_url_write.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_write.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_write.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_write.Size = new System.Drawing.Size(137, 48);
+            this.btn_url_write.Symbol = 361508;
+            this.btn_url_write.TabIndex = 14;
+            this.btn_url_write.Text = "写标签";
+            this.btn_url_write.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
-            // uiSymbolButton7
+            // btn_url_read
             // 
-            this.uiSymbolButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton7.Enabled = false;
-            this.uiSymbolButton7.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton7.FillDisableColor = System.Drawing.Color.Red;
-            this.uiSymbolButton7.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton7.ForeDisableColor = System.Drawing.Color.White;
-            this.uiSymbolButton7.Location = new System.Drawing.Point(301, 20);
-            this.uiSymbolButton7.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton7.Name = "uiSymbolButton7";
-            this.uiSymbolButton7.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton7.RectDisableColor = System.Drawing.Color.Red;
-            this.uiSymbolButton7.Size = new System.Drawing.Size(298, 60);
-            this.uiSymbolButton7.Symbol = 61532;
-            this.uiSymbolButton7.SymbolDisableColor = System.Drawing.Color.White;
-            this.uiSymbolButton7.SymbolSize = 36;
-            this.uiSymbolButton7.TabIndex = 13;
-            this.uiSymbolButton7.Text = "没有识别到标签";
-            this.uiSymbolButton7.TipsFont = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            // 
-            // uiSymbolButton4
-            // 
-            this.uiSymbolButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton4.FillColor = System.Drawing.Color.Red;
-            this.uiSymbolButton4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton4.Location = new System.Drawing.Point(301, 86);
-            this.uiSymbolButton4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton4.Name = "uiSymbolButton4";
-            this.uiSymbolButton4.RectColor = System.Drawing.Color.Red;
-            this.uiSymbolButton4.Size = new System.Drawing.Size(137, 48);
-            this.uiSymbolButton4.Symbol = 362938;
-            this.uiSymbolButton4.TabIndex = 9;
-            this.uiSymbolButton4.Text = "读标签";
-            this.uiSymbolButton4.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_read.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_url_read.FillColor = System.Drawing.Color.Red;
+            this.btn_url_read.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_read.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_read.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_read.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn_url_read.Location = new System.Drawing.Point(310, 54);
+            this.btn_url_read.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_url_read.Name = "btn_url_read";
+            this.btn_url_read.RectColor = System.Drawing.Color.Red;
+            this.btn_url_read.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_url_read.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_read.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_url_read.Size = new System.Drawing.Size(137, 48);
+            this.btn_url_read.Symbol = 362938;
+            this.btn_url_read.TabIndex = 9;
+            this.btn_url_read.Text = "读标签";
+            this.btn_url_read.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // uiGroupBox3
             // 
-            this.uiGroupBox3.Controls.Add(this.uiTextBox4);
-            this.uiGroupBox3.Controls.Add(this.uiTextBox5);
-            this.uiGroupBox3.Controls.Add(this.uiTextBox6);
+            this.uiGroupBox3.Controls.Add(this.txt_url);
+            this.uiGroupBox3.Controls.Add(this.txt_cc);
+            this.uiGroupBox3.Controls.Add(this.txt_uid);
             this.uiGroupBox3.Controls.Add(this.label7);
             this.uiGroupBox3.Controls.Add(this.label8);
             this.uiGroupBox3.Controls.Add(this.label9);
@@ -586,56 +582,54 @@
             this.uiGroupBox3.Text = "读写数据";
             this.uiGroupBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // uiTextBox4
+            // txt_url
             // 
-            this.uiTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox4.Location = new System.Drawing.Point(67, 139);
-            this.uiTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox4.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox4.Name = "uiTextBox4";
-            this.uiTextBox4.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox4.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox4.ShowText = false;
-            this.uiTextBox4.Size = new System.Drawing.Size(205, 41);
-            this.uiTextBox4.TabIndex = 5;
-            this.uiTextBox4.Text = "www.baidu.com";
-            this.uiTextBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox4.Watermark = "";
+            this.txt_url.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_url.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_url.Location = new System.Drawing.Point(67, 139);
+            this.txt_url.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_url.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_url.Name = "txt_url";
+            this.txt_url.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_url.RectColor = System.Drawing.Color.Red;
+            this.txt_url.ShowText = false;
+            this.txt_url.Size = new System.Drawing.Size(205, 41);
+            this.txt_url.TabIndex = 5;
+            this.txt_url.Text = "www.baidu.com";
+            this.txt_url.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_url.Watermark = "";
             // 
-            // uiTextBox5
+            // txt_cc
             // 
-            this.uiTextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox5.Location = new System.Drawing.Point(67, 88);
-            this.uiTextBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox5.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox5.Name = "uiTextBox5";
-            this.uiTextBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox5.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox5.ShowText = false;
-            this.uiTextBox5.Size = new System.Drawing.Size(205, 41);
-            this.uiTextBox5.TabIndex = 4;
-            this.uiTextBox5.Text = "uiTextBox5";
-            this.uiTextBox5.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox5.Watermark = "";
+            this.txt_cc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_cc.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_cc.Location = new System.Drawing.Point(67, 88);
+            this.txt_cc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_cc.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_cc.Name = "txt_cc";
+            this.txt_cc.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_cc.RectColor = System.Drawing.Color.Red;
+            this.txt_cc.ShowText = false;
+            this.txt_cc.Size = new System.Drawing.Size(205, 41);
+            this.txt_cc.TabIndex = 4;
+            this.txt_cc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_cc.Watermark = "";
             // 
-            // uiTextBox6
+            // txt_uid
             // 
-            this.uiTextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTextBox6.Location = new System.Drawing.Point(67, 37);
-            this.uiTextBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox6.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox6.Name = "uiTextBox6";
-            this.uiTextBox6.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox6.RectColor = System.Drawing.Color.Red;
-            this.uiTextBox6.ShowText = false;
-            this.uiTextBox6.Size = new System.Drawing.Size(205, 41);
-            this.uiTextBox6.TabIndex = 3;
-            this.uiTextBox6.Text = "uiTextBox6";
-            this.uiTextBox6.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox6.Watermark = "";
+            this.txt_uid.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_uid.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txt_uid.Location = new System.Drawing.Point(67, 37);
+            this.txt_uid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_uid.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_uid.Name = "txt_uid";
+            this.txt_uid.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_uid.RectColor = System.Drawing.Color.Red;
+            this.txt_uid.ShowText = false;
+            this.txt_uid.Size = new System.Drawing.Size(205, 41);
+            this.txt_uid.TabIndex = 3;
+            this.txt_uid.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_uid.Watermark = "";
             // 
             // label7
             // 
@@ -644,16 +638,16 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 16);
             this.label7.TabIndex = 2;
-            this.label7.Text = "xxx:";
+            this.label7.Text = "URL:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 101);
+            this.label8.Location = new System.Drawing.Point(29, 101);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 16);
+            this.label8.Size = new System.Drawing.Size(31, 16);
             this.label8.TabIndex = 1;
-            this.label8.Text = "URL:";
+            this.label8.Text = "CC:";
             // 
             // label9
             // 
@@ -664,69 +658,69 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "UID:";
             // 
-            // uiDataGridView1
+            // dgv_url
             // 
-            this.uiDataGridView1.AllowUserToAddRows = false;
-            this.uiDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
-            this.uiDataGridView1.AutoScrollToBottom = true;
-            this.uiDataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.uiDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.uiDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
-            this.uiDataGridView1.ColumnHeadersHeight = 32;
-            this.uiDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.uiDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_url.AllowUserToAddRows = false;
+            this.dgv_url.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgv_url.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_url.AutoScrollToBottom = true;
+            this.dgv_url.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_url.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_url.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_url.ColumnHeadersHeight = 32;
+            this.dgv_url.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_url.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uiDataGridView1.DefaultCellStyle = dataGridViewCellStyle28;
-            this.uiDataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiDataGridView1.EnableHeadersVisualStyles = false;
-            this.uiDataGridView1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiDataGridView1.GridColor = System.Drawing.Color.Brown;
-            this.uiDataGridView1.Location = new System.Drawing.Point(0, 204);
-            this.uiDataGridView1.Name = "uiDataGridView1";
-            this.uiDataGridView1.RectColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
-            this.uiDataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle30;
-            this.uiDataGridView1.RowTemplate.Height = 23;
-            this.uiDataGridView1.ScrollBarColor = System.Drawing.Color.Red;
-            this.uiDataGridView1.ScrollBarRectColor = System.Drawing.Color.Red;
-            this.uiDataGridView1.ScrollBarStyleInherited = false;
-            this.uiDataGridView1.SelectedIndex = -1;
-            this.uiDataGridView1.Size = new System.Drawing.Size(611, 192);
-            this.uiDataGridView1.StripeOddColor = System.Drawing.Color.White;
-            this.uiDataGridView1.TabIndex = 6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_url.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_url.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_url.EnableHeadersVisualStyles = false;
+            this.dgv_url.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgv_url.GridColor = System.Drawing.Color.Brown;
+            this.dgv_url.Location = new System.Drawing.Point(0, 204);
+            this.dgv_url.Name = "dgv_url";
+            this.dgv_url.RectColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_url.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgv_url.RowHeadersVisible = false;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgv_url.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_url.RowTemplate.Height = 23;
+            this.dgv_url.ScrollBarColor = System.Drawing.Color.Red;
+            this.dgv_url.ScrollBarRectColor = System.Drawing.Color.Red;
+            this.dgv_url.ScrollBarStyleInherited = false;
+            this.dgv_url.SelectedIndex = -1;
+            this.dgv_url.Size = new System.Drawing.Size(611, 192);
+            this.dgv_url.StripeOddColor = System.Drawing.Color.White;
+            this.dgv_url.TabIndex = 6;
             // 
             // Column1
             // 
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column1.HeaderText = "序号";
             this.Column1.Name = "Column1";
             // 
@@ -825,21 +819,6 @@
             this.uiPanel2.Text = "NFCRWTool V1.0.0.0";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uiGroupBox4
-            // 
-            this.uiGroupBox4.FillColor = System.Drawing.Color.MistyRose;
-            this.uiGroupBox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiGroupBox4.Location = new System.Drawing.Point(15, 265);
-            this.uiGroupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiGroupBox4.Name = "uiGroupBox4";
-            this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox4.RectColor = System.Drawing.Color.Red;
-            this.uiGroupBox4.Size = new System.Drawing.Size(399, 125);
-            this.uiGroupBox4.TabIndex = 2;
-            this.uiGroupBox4.Text = "设备信息";
-            this.uiGroupBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -865,7 +844,7 @@
             this.tabPage2.ResumeLayout(false);
             this.uiGroupBox3.ResumeLayout(false);
             this.uiGroupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_url)).EndInit();
             this.uiNavBar1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -891,35 +870,33 @@
         private Sunny.UI.UISwitch switch_connect;
         private Sunny.UI.UIComboBox combo_baudrate;
         private Sunny.UI.UIComboBox comb_com;
-        private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UIGroupBox uiGroupBox2;
-        private Sunny.UI.UISymbolButton uiSymbolButton2;
-        private Sunny.UI.UITextBox uiTextBox3;
-        private Sunny.UI.UITextBox uiTextBox2;
-        private Sunny.UI.UITextBox uiTextBox1;
+        private Sunny.UI.UISymbolButton btn_refresh;
+        private Sunny.UI.UITextBox txt_hardwave;
+        private Sunny.UI.UITextBox txt_softwave;
+        private Sunny.UI.UITextBox txt_model;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private Sunny.UI.UISymbolButton uiSymbolButton6;
-        private Sunny.UI.UISymbolButton uiSymbolButton5;
-        private Sunny.UI.UISymbolButton uiSymbolButton3;
-        private Sunny.UI.UISymbolButton uiSymbolButton7;
-        private Sunny.UI.UISymbolButton uiSymbolButton4;
+        private Sunny.UI.UISymbolButton btn_url_clear;
+        private Sunny.UI.UISymbolButton btn_url_save;
+        private Sunny.UI.UISymbolButton btn_url_write;
+        private Sunny.UI.UISymbolButton btn_url_read;
         private Sunny.UI.UIGroupBox uiGroupBox3;
-        private Sunny.UI.UITextBox uiTextBox4;
-        private Sunny.UI.UITextBox uiTextBox5;
-        private Sunny.UI.UITextBox uiTextBox6;
+        private Sunny.UI.UITextBox txt_url;
+        private Sunny.UI.UITextBox txt_cc;
+        private Sunny.UI.UITextBox txt_uid;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private Sunny.UI.UIDataGridView uiDataGridView1;
+        private Sunny.UI.UIDataGridView dgv_url;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private Sunny.UI.UITextBox txt_param1;
         private Sunny.UI.UITextBox uiTextBox7;
         private Sunny.UI.UITextBox txt_param2;
-        private Sunny.UI.UIGroupBox uiGroupBox4;
+        private Sunny.UI.UIRadioButtonGroup uiRadioButtonGroup1;
     }
 }
 

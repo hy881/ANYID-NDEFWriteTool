@@ -19,11 +19,15 @@ namespace NDEFReadWriteTool
         {
             InitializeComponent();   
             comb_connect_type.SelectedIndex = 0;
-            switch_connect.Click +=(s,e)=> ConnectButtonClick?.Invoke(this,e);
+            uiRadioButtonGroup1.SelectedIndex = 0;
+            switch_connect.ValueChanged +=(s,e)=> ConnectSwitchValueChange?.Invoke(this,e);
+            btn_refresh.Click += (s, e) => RefreshButtonClick?.Invoke(this,e);
+            uiRadioButtonGroup1.ValueChanged+=(s,i,e)=>RadioButtonChange?.Invoke(this,i,e);
         }
 
-        public event EventHandler ConnectButtonClick;
         public event EventHandler<bool> ConnectSwitchValueChange;
+        public event EventHandler RefreshButtonClick;
+        public event UIRadioButtonGroup.OnValueChanged RadioButtonChange;
 
         private void uiTabControlMenu1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -68,21 +72,6 @@ namespace NDEFReadWriteTool
                 lab_title2.Text = "PORT:";
             }
         }
-
-        #endregion
-
-        private void switch_connect_ValueChanged(object sender, bool value)
-        {
-            if (value)
-            {
-                this.ShowProcessForm(100);
-            }
-            else
-            {
-
-            }
-        }
-
         public ConnectParam GetConnectParam()
         {
             ConnectParam param = new ConnectParam();
@@ -94,17 +83,63 @@ namespace NDEFReadWriteTool
             }
             else if (comb_connect_type.SelectedIndex == 1)
             {
-                param.ComStr=comb_com.Text;
-                param.Baudrate=combo_baudrate.Text;
+                param.ComStr = comb_com.Text;
+                param.Baudrate = combo_baudrate.Text;
                 param.ConnectType = 1;
             }
             else
             {
                 param.IpStr = txt_param1.Text;
-                param.Port=txt_param2.Text.ToInt();
+                param.Port = txt_param2.Text.ToInt();
                 param.ConnectType = 2;
             }
             return param;
         }
+        public void showReaderVersion(ReaderVersion readerVersion)
+        {
+            this.Invoke((MethodInvoker)(() =>
+            {
+                this.txt_model.Text = readerVersion.Model;
+                this.txt_softwave.Text = readerVersion.SoftwareVersion;
+                this.txt_hardwave.Text = readerVersion.HardwareVersion;
+            }));
+
+        }
+        #endregion
+
+        #region 读写URL
+
+        #endregion
+
+
+        public void controlProgressDialog(bool bOpen)
+        {
+            if (bOpen)
+            {
+                this.ShowProcessForm(100);
+            }
+            else
+            {
+                this.HideProcessForm();
+            }
+        }
+
+        public void showTips(int type, string message)
+        {
+            if (type == 0)
+            {
+                this.ShowSuccessTip(message);
+            }
+            else if (type == 1)
+            {
+                this.ShowWarningTip(message);
+            }
+            else
+            {
+                this.ShowErrorTip(message);
+            }
+        }
+
+    
     }
 }
