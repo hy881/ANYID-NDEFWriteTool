@@ -19,8 +19,13 @@ namespace NDEFReadWriteTool
             this._readerView = readerView;
             this._readerView.ConnectSwitchValueChange += connectSwitchClick;
             _readerService.OnVersionReturn += readerVersionReturn;
+            _readerService.OnInfoReturn += OnNdefRwReturn;
             _readerView.RefreshButtonClick += refreshBtnClick;
             _readerView.RadioButtonChange += tagTypeChange;
+            _readerView.ReadURLButtonClick += readUrlBtnClick;
+            _readerView.WriteURLButtonClick += writeUrlBtnClick;
+            _readerView.WriteWifiButtonClick += writeWifidBtnClick;
+            _readerView.WriteBleButtonClick += writeBleBtnClick;
         }
 
         private  async void connectSwitchClick(object sender,bool value)
@@ -80,6 +85,77 @@ namespace NDEFReadWriteTool
                 _readerView.showTips(2, "通信超时");
             }
             _readerView.controlProgressDialog(false);
+        }
+
+        private async void readUrlBtnClick(object sender,EventArgs args)
+        {
+            bool bResult = await _readerService.ReadNdefDataAsync(0);
+            if (bResult)
+            {
+                _readerView.showTips(0, "读取成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "读取错误");
+            }
+        }
+
+        private async void writeUrlBtnClick(object sender,EventArgs e)
+        {
+            NdefInfo info = _readerView.GetNdefInfo(0);
+            bool bResult=await _readerService.WriteNdefDataAsync(0,0,info.Cc,info.NdefData,"");
+            if (bResult)
+            {
+                _readerView.showTips(0, "写入成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "写入错误");
+            }
+        }
+
+        private async void writeWifidBtnClick(object sender,EventArgs e)
+        {
+            NdefInfo info = _readerView.GetNdefInfo(2);
+            bool bResult = await _readerService.WriteNdefDataAsync(0,2,info.Cc,info.NdefData,info.NdefData2);
+            if (bResult)
+            {
+                _readerView.showTips(0, "写入成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "写入错误");
+            }
+        }
+
+        private async void writeBleBtnClick(object sender, EventArgs e)
+        {
+            NdefInfo info = _readerView.GetNdefInfo(3);
+            bool bResult = await _readerService.WriteNdefDataAsync(0, 3, info.Cc, info.NdefData, "");
+            if (bResult)
+            {
+                _readerView.showTips(0, "写入成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "写入错误");
+            }
+        }
+
+        private void OnNdefRwReturn(NdefInfo ndefInfo,int type)
+        {
+            switch (type)
+            {
+                case 0:
+                    _readerView.showUrlInfo(ndefInfo);
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
         }
     }
 }

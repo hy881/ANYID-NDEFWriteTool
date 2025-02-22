@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 namespace NDEFReadWriteTool
 {
     public delegate void VersionReturnDelegate(ReaderVersion readerVersion);
-
+    public delegate void OnMessageReturnDelegate(NdefInfo value, int index);
     internal interface IReaderService
     {
+        event OnMessageReturnDelegate OnInfoReturn;
         event VersionReturnDelegate OnVersionReturn;
         Task<bool> ReaderInitAsync(ConnectParam param);
         Task<bool> GetReaderVersionAsync();
         Task<bool> SetReaderConfigAsync(int type);
-        Task<bool> WriteUrlAsync(string ccData,string url);
-        Task<bool> ReadUrlAsync();
+        Task<bool> ReadNdefDataAsync(int tagType);
+        Task<bool> WriteNdefDataAsync(int tagType, int ndefType, string ccData, string ndefData1,string ndefData2);
         void CloseReader(int type);
 
        

@@ -54,9 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bean\NdefInfo.cs" />
     <Compile Include="Infrastructure\AnyIDReader.cs" />
     <Compile Include="bean\ConnectParam.cs" />
     <Compile Include="bean\ReaderVersion.cs" />
+    <Compile Include="Model\CsvService.cs" />
+    <Compile Include="Model\ICsvService.cs" />
     <Compile Include="Presenter\UrlPersenter.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>

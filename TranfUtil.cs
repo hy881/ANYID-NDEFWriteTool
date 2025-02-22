@@ -61,6 +61,16 @@ namespace NDEFReadWriteTool
             return asciiStr;
         }
 
+        public static string byteToAscii(byte[] code)
+        {
+            return Encoding.ASCII.GetString(code);
+        }
+
+        public static byte[] asciiToByte(string code)
+        {
+            return System.Text.Encoding.ASCII.GetBytes(code);
+        }
+
         public static string getCurrentTime()
         {
             return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
