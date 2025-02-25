@@ -16,8 +16,8 @@ namespace NDEFReadWriteTool
         Task<bool> ReaderInitAsync(ConnectParam param);
         Task<bool> GetReaderVersionAsync();
         Task<bool> SetReaderConfigAsync(int type);
-        Task<bool> ReadNdefDataAsync(int tagType);
-        Task<bool> WriteNdefDataAsync(int tagType, int ndefType, string ccData, string ndefData1,string ndefData2);
+        Task<bool> ReadNdefDataAsync(int ndefType);
+        Task<bool> WriteNdefDataAsync(int ndefType, string ccData, string ndefData1,string ndefData2);
         void CloseReader(int type);
 
        

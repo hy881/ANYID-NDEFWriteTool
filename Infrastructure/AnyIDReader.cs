@@ -315,20 +315,89 @@ namespace NDEFReadWriteTool
 
         public static string parseNdef(byte[] valueData)
         {
-            int payloadLen = valueData[0];
+            int index = 0;
+            int idLen = 0;
+            int header = valueData[index++];
+            int idExited = (header >> 3) &0x01;
+            int tnf = header & 0x07;
+            int typeLen=valueData[index++];
+            int payloadLen=valueData[index++];      
+            if (idExited == 1)
+            {
+                idLen = valueData[index++];
+            }
             if (payloadLen>0)
             {
-                byte[] ndefData = new byte[payloadLen-1];
-                Array.Copy(valueData,3, ndefData, 0, ndefData.Length);
-                if (valueData[1]==0x54)//T
+                byte[] type=new byte[typeLen];
+                Array.Copy(valueData,index,type,0,typeLen);
+                string typeStr= TranfUtil.byteToAscii(type);
+                index += typeLen;
+                if (idLen > 0)
                 {
-                    return TranfUtil.byteToAscii(ndefData);
+                    byte[] id = new byte[idLen];
+                    Array.Copy(valueData,index,id,0,idLen);
+                    index+=idLen;
                 }
-                else if (valueData[1]==0x55)//U
+                byte[] payload = new byte[payloadLen];
+                Array.Copy(valueData,index,payload,0,payloadLen);
+                switch (tnf)
                 {
-                    string header = NDEF_URI_PREFIXS[valueData[2]];
-                    return header + TranfUtil.byteToAscii(ndefData);
+                    case 1://通用类型:txt.url
+                        if (typeStr=="T")
+                        {
+                            byte[] ndefData = new byte[payloadLen - 1];
+                            Array.Copy(valueData, 3, ndefData, 0, ndefData.Length);
+                            return TranfUtil.byteToAscii(ndefData);
+                        }
+                        else if (typeStr == "U")
+                        {
+                            byte[] ndefData = new byte[payloadLen - 1];
+                            Array.Copy(valueData, 3, ndefData, 0, ndefData.Length);
+                            string headerStr = NDEF_URI_PREFIXS[payload[0]];
+                            return headerStr + TranfUtil.byteToAscii(ndefData);
+                        }
+                        break;
+                    case 2://媒体类型:wifi ble
+                        if (typeStr== "application/vnd.wfa.wsc")
+                        {
+                            int payloadIndex = 11;
+                            int wifiNameLen=payload[payloadIndex++]*256+payload[payloadIndex++] &0xFF;
+                            byte[] wifiName = new byte[wifiNameLen];
+                            Array.Copy(payload, payloadIndex, wifiName, 0, wifiNameLen);
+                            payloadIndex+=wifiNameLen;
+                            payloadIndex += 14;
+                            int wifiPasswordLen=payload[payloadIndex++]*256+payload[payloadIndex++] &0xFF;
+                            byte[] wifiPassword=new byte[wifiPasswordLen];
+                            Array.Copy(payload, payloadIndex, wifiPassword, 0, wifiPasswordLen);
+                            return TranfUtil.byteToAscii(wifiName)+"#"+TranfUtil.byteToAscii(wifiPassword);
+
+                        }
+                        else if (typeStr == "application/vnd.bluetooth.ep.oob")
+                        {
+                            byte[] mac=new byte[6];
+                            Array.Copy(payload,2, mac, 0, mac.Length);
+                            Array.Reverse(mac);
+                            return TranfUtil.HexToString(mac, 0, (uint)mac.Length);
+                        }
+                        break;
+                    case 3://绝对URL
+                        break;
+                    case 4://外部类型:app
+                        break;
+                    
                 }
+
+                //byte[] ndefData = new byte[payloadLen-1];
+                //Array.Copy(valueData,3, ndefData, 0, ndefData.Length);
+                //if (valueData[1]==0x54)//T
+                //{
+                //    return TranfUtil.byteToAscii(ndefData);
+                //}
+                //else if (valueData[1]==0x55)//U
+                //{
+                //    string header = NDEF_URI_PREFIXS[valueData[2]];
+                //    return header + TranfUtil.byteToAscii(ndefData);
+                //}
             }
             return null;
         }
@@ -374,9 +443,13 @@ namespace NDEFReadWriteTool
                             blockNum++;
                         }
                         byte[] valueData=readBlockFor15693(2, blockNum);
+                        byte[] ndefData=new byte[valueData.Length+2];
+                        Array.Copy(valueData, 0, ndefData, 2, len);
+                        ndefData[0] = tlvData[2];
+                        ndefData[1] = tlvData[3];
                         if (valueData != null)
                         {
-                            string ndefStr = parseNdef(valueData);
+                            string ndefStr = parseNdef(ndefData);
                             if (ndefStr != null)
                             {
                                 fun1?.Invoke(new NdefInfo(TranfUtil.HexToString(uid_15693, 0, (uint)uid_15693.Length),
@@ -559,7 +632,7 @@ namespace NDEFReadWriteTool
                 {
                     checkPage(ndefData, sender =>
                     {
-                        fun1?.Invoke(uid_14443A);
+                        fun1?.Invoke(TranfUtil.HexToString(uid_14443A, 0, (uint)uid_14443A.Length));
                     }, msg =>
                     {
                         fun2?.Invoke("写数据失败");
@@ -595,6 +668,10 @@ namespace NDEFReadWriteTool
                             blockNum++;
                         }
                         byte[] valueData = readBlockFor15693(5, blockNum);
+                        byte[] ndefData = new byte[valueData.Length + 2];
+                        Array.Copy(valueData, 0, ndefData, 2, len);
+                        ndefData[0] = tlvData[2];
+                        ndefData[1] = tlvData[3];
                         if (valueData != null)
                         {
                             string ndefStr = parseNdef(valueData);
@@ -727,20 +804,25 @@ namespace NDEFReadWriteTool
             byte[] ndefData = formatNdef("0000", (byte)ndefType, ndefMsg1, ndefMsg2);
             if (ndefData != null)
             {
+                bool bResult = false;
                 writeM1Block(ndefData, obj =>
                 {
-                    checkPage(ndefData, sender =>
-                    {
-                        fun1?.Invoke(uid_14443A);
-                    }, msg =>
-                    {
-                        fun2?.Invoke("写数据失败");
-                    });
+                   bResult = true;
 
                 }, msg =>
                 {
                     fun2?.Invoke("写数据失败");
                 });
+                if (bResult)
+                {
+                    checkM1Block(ndefData, sender =>
+                    {
+                        fun1?.Invoke(TranfUtil.HexToString(uid_14443A,0,(uint)uid_14443A.Length));
+                    }, msg =>
+                    {
+                        fun2?.Invoke("写数据失败");
+                    });
+                }
             }
             else
             {
@@ -762,9 +844,11 @@ namespace NDEFReadWriteTool
                     blockNum++;
                 }
                 byte[] valueData = readM1Block(4, blockNum);
-                if (valueData != null)
+                if (valueData != null&&valueData.Length>4)
                 {
-                    string ndefStr = parseNdef(valueData);
+                    byte[] ndefData=new byte[valueData.Length-4];
+                    Array.Copy(valueData, 4, ndefData, 0, ndefData.Length);
+                    string ndefStr = parseNdef(ndefData);
                     if (ndefStr != null)
                     {
                         fun1?.Invoke(new NdefInfo(TranfUtil.HexToString(uid_14443A, 0, (uint)uid_14443A.Length),
@@ -796,19 +880,21 @@ namespace NDEFReadWriteTool
             pBlock.block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK * hfReaderDll.HFREADER_ISO14443A_M1BLOCKNUM_MAX];
             pBlock.key = TranfUtil.strToHexByte("FFFFFFFFFFFF");
            
-            pBlock.keyType=hfReaderDll.HFREADER_ISO14443A_KEY_A;
+            pBlock.keyType=hfReaderDll.HFREADER_ISO14443A_KEY_B;
             byte[] block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK];
             int len = data.Length / 16;
             if (len%16>0)
             {
                 len++;
             }
+            byte[] temp=new byte[len*16];
+            Array.Copy(data, 0, temp, 0, data.Length);
             int addr = 0x04;
             for (int i = 0; i < len; i++)
             {
                 pBlock.num = 1;
                 pBlock.addr =(uint) addr;
-                Array.Copy(data, i * 16, pBlock.block, 0, 16);
+                Array.Copy(temp, i * 16, pBlock.block, 0, 16);
                 int rlt = hfReaderDll.iso14443AAuthWriteM1Block(hSerial, 0, 1, ref pBlock, null, null);
                 if (rlt > 0&&pBlock.result.flag==0)
                 {
@@ -825,22 +911,22 @@ namespace NDEFReadWriteTool
                 }
             }
         }
-        private  static byte[] readM1Block(int addr, int blockNum)
+        private static byte[] readM1Block(int addr, int blockNum)
         {
             byte[] buffer = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK * hfReaderDll.HFREADER_ISO14443A_M1BLOCKNUM_MAX];
             ISO14443A_BLOCKPARAM pBlock = new ISO14443A_BLOCKPARAM();
             pBlock.uid.uid = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_MAX_UID];
             pBlock.key = TranfUtil.strToHexByte("FFFFFFFFFFFF");
-            pBlock.keyType = hfReaderDll.HFREADER_ISO14443A_KEY_A;            
+            pBlock.keyType = hfReaderDll.HFREADER_ISO14443A_KEY_B;            
             for (int i = 0; i < blockNum; i++)
             {
-                pBlock.block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK];
+                pBlock.block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK * hfReaderDll.HFREADER_ISO14443A_M1BLOCKNUM_MAX];
                 pBlock.num = 1;
                 pBlock.addr = (uint)addr;
                 int rlt = hfReaderDll.iso14443AAuthReadM1Block(hSerial, 0, 1, ref pBlock, null, null);
                 if (rlt > 0 && pBlock.result.flag == 0)
                 {
-                    Array.Copy(pBlock.block, 0, buffer, i*16, pBlock.block.Length);
+                    Array.Copy(pBlock.block, 0, buffer, i*16, 16);
                 }
                 else
                 {
@@ -853,6 +939,38 @@ namespace NDEFReadWriteTool
                 }
             }
             return buffer;
+        }
+
+        private static void checkM1Block(byte[] data, onSuccess fun1, onFail fun2)
+        {
+            ISO14443A_BLOCKPARAM pBlock = new ISO14443A_BLOCKPARAM();
+            pBlock.uid.uid = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_MAX_UID];
+            pBlock.block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK * hfReaderDll.HFREADER_ISO14443A_M1BLOCKNUM_MAX];
+            pBlock.key = TranfUtil.strToHexByte("FFFFFFFFFFFF");
+            pBlock.keyType = hfReaderDll.HFREADER_ISO14443A_KEY_B;
+            byte[] block = new Byte[hfReaderDll.HFREADER_ISO14443A_LEN_M1BLOCK];
+            int len = data.Length / 16;
+            if (len % 16 > 0)
+            {
+                len++;
+            }
+            byte[] buffer = readM1Block(0x04, len);
+            if (buffer!=null)
+            {
+                if (checkBytes(data,buffer,data.Length))
+                {
+                    fun1?.Invoke("校验成功");
+                }
+                else
+                {
+                    fun2?.Invoke("校验失败");
+                }
+            }
+            else
+            {
+                fun2?.Invoke("校验失败");
+            }
+
         }
         #endregion
 

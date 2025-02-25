@@ -24,8 +24,12 @@ namespace NDEFReadWriteTool
             _readerView.RadioButtonChange += tagTypeChange;
             _readerView.ReadURLButtonClick += readUrlBtnClick;
             _readerView.WriteURLButtonClick += writeUrlBtnClick;
+            _readerView.WriteTXTButtonClick += writeTxtBtnClick;
+            _readerView.ReadTXTButtonClick += readTxtBtnClick; 
             _readerView.WriteWifiButtonClick += writeWifidBtnClick;
+            _readerView.ReadWifiButtonClick+=readWifiBtnClick;
             _readerView.WriteBleButtonClick += writeBleBtnClick;
+            _readerView.ReadBleButtonClick += readbleBtnClick;
         }
 
         private  async void connectSwitchClick(object sender,bool value)
@@ -103,7 +107,7 @@ namespace NDEFReadWriteTool
         private async void writeUrlBtnClick(object sender,EventArgs e)
         {
             NdefInfo info = _readerView.GetNdefInfo(0);
-            bool bResult=await _readerService.WriteNdefDataAsync(0,0,info.Cc,info.NdefData,"");
+            bool bResult=await _readerService.WriteNdefDataAsync(0,info.Cc,info.NdefData,"");
             if (bResult)
             {
                 _readerView.showTips(0, "写入成功");
@@ -111,13 +115,53 @@ namespace NDEFReadWriteTool
             else
             {
                 _readerView.showTips(2, "写入错误");
+            }
+        }
+
+        private async void readTxtBtnClick(object sender, EventArgs args)
+        {
+            bool bResult = await _readerService.ReadNdefDataAsync(1);
+            if (bResult)
+            {
+                _readerView.showTips(0, "读取成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "读取错误");
+            }
+        }
+
+        private async void writeTxtBtnClick(object sender, EventArgs e)
+        {
+            NdefInfo info = _readerView.GetNdefInfo(1);
+            bool bResult = await _readerService.WriteNdefDataAsync(1, info.Cc, info.NdefData, "");
+            if (bResult)
+            {
+                _readerView.showTips(0, "写入成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "写入错误");
+            }
+        }
+
+        private async void readWifiBtnClick(object sender, EventArgs args)
+        {
+            bool bResult = await _readerService.ReadNdefDataAsync(2);
+            if (bResult)
+            {
+                _readerView.showTips(0, "读取成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "读取错误");
             }
         }
 
         private async void writeWifidBtnClick(object sender,EventArgs e)
         {
             NdefInfo info = _readerView.GetNdefInfo(2);
-            bool bResult = await _readerService.WriteNdefDataAsync(0,2,info.Cc,info.NdefData,info.NdefData2);
+            bool bResult = await _readerService.WriteNdefDataAsync(2,info.Cc,info.NdefData,info.NdefData2);
             if (bResult)
             {
                 _readerView.showTips(0, "写入成功");
@@ -128,10 +172,23 @@ namespace NDEFReadWriteTool
             }
         }
 
+        private async void readbleBtnClick(object sender, EventArgs args)
+        {
+            bool bResult = await _readerService.ReadNdefDataAsync(3);
+            if (bResult)
+            {
+                _readerView.showTips(0, "读取成功");
+            }
+            else
+            {
+                _readerView.showTips(2, "读取错误");
+            }
+        }
+
         private async void writeBleBtnClick(object sender, EventArgs e)
         {
             NdefInfo info = _readerView.GetNdefInfo(3);
-            bool bResult = await _readerService.WriteNdefDataAsync(0, 3, info.Cc, info.NdefData, "");
+            bool bResult = await _readerService.WriteNdefDataAsync( 3, info.Cc, info.NdefData, "");
             if (bResult)
             {
                 _readerView.showTips(0, "写入成功");
@@ -144,18 +201,7 @@ namespace NDEFReadWriteTool
 
         private void OnNdefRwReturn(NdefInfo ndefInfo,int type)
         {
-            switch (type)
-            {
-                case 0:
-                    _readerView.showUrlInfo(ndefInfo);
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
+            _readerView.showNdefInfo(ndefInfo,type);            
         }
     }
 }

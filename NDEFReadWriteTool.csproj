@@ -58,6 +58,7 @@
     <Compile Include="Infrastructure\AnyIDReader.cs" />
     <Compile Include="bean\ConnectParam.cs" />
     <Compile Include="bean\ReaderVersion.cs" />
+    <Compile Include="Infrastructure\CsvUtil.cs" />
     <Compile Include="Model\CsvService.cs" />
     <Compile Include="Model\ICsvService.cs" />
     <Compile Include="Presenter\UrlPersenter.cs" />

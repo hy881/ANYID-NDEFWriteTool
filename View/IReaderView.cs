@@ -28,13 +28,21 @@ namespace NDEFReadWriteTool.View
 
         event EventHandler WriteURLButtonClick;
 
+        event EventHandler ReadTXTButtonClick;
+
+        event EventHandler WriteTXTButtonClick;
+
         event EventHandler WriteWifiButtonClick;
 
+        event EventHandler ReadWifiButtonClick;
+
         event EventHandler WriteBleButtonClick;
+
+        event EventHandler ReadBleButtonClick;
 
         void showReaderVersion(ReaderVersion readerVersion);
         void controlProgressDialog(bool bOpen);
         void showTips(int type, string message);
-        void showUrlInfo(NdefInfo info);
+        void showNdefInfo(NdefInfo info,int type);
     }
 }

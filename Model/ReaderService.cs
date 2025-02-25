@@ -69,10 +69,20 @@ namespace NDEFReadWriteTool.Model
                             case 2:
                                 AnyIDReader.getReaderVersion(obj =>
                                 {
-                                    bResult = true;
+                                    step++;
                                     OnVersionReturn?.Invoke((ReaderVersion)obj);
                                 }, msg =>
                                 {                                 
+                                    
+                                });
+                                
+                                break;
+                            case 3:
+                                AnyIDReader.setReaderConfig(0, obj =>
+                                {
+                                    bResult = true;
+                                }, msg =>
+                                {
                                     bResult = false;
                                 });
                                 bStart = false;
@@ -117,10 +127,10 @@ namespace NDEFReadWriteTool.Model
         {
            return  await Task.Run(() =>
             {
-                bool rlt = readUid(tagType);
+                bool rlt = readUid();
                 if (rlt)
                 {
-                    NdefInfo ndefInfo = readNdef(tagType);
+                    NdefInfo ndefInfo = readNdef();
                     if (ndefInfo!=null)
                     {
                         OnInfoReturn?.Invoke(ndefInfo, tagType);
@@ -132,17 +142,17 @@ namespace NDEFReadWriteTool.Model
             });
         }
 
-        public async Task<bool> WriteNdefDataAsync(int tagType, int ndefType, string ccData, string ndefData1, string ndefData2)
+        public async Task<bool> WriteNdefDataAsync(int ndefType, string ccData, string ndefData1, string ndefData2)
         {
             return await Task.Run(() =>
             {
-                bool rlt=readUid(tagType);
+                bool rlt=readUid();
                 if (rlt)
                 {
                     NdefInfo ndefInfo = writeNdef(tagType, ndefType, ccData,  ndefData1,  ndefData2);
                     if (ndefInfo!=null)
                     {
-                        OnInfoReturn?.Invoke(ndefInfo, tagType);
+                        OnInfoReturn?.Invoke(ndefInfo, ndefType);
                         return true;
                     }
                 }
@@ -151,7 +161,7 @@ namespace NDEFReadWriteTool.Model
             });
         }
 
-        private bool readUid(int tagType)
+        private bool readUid()
         {
             bool bResult=false;
             switch (tagType)
@@ -202,7 +212,13 @@ namespace NDEFReadWriteTool.Model
                     });
                     break;
                 case 1://写M1
+                    AnyIDReader.writeNDEFForM1(ccData, ndefType, ndefData1, ndefData2, obj =>
+                    {
+                        info = new NdefInfo(obj.ToString(), ccData, ndefData1, ndefData2);
+                    }, msg =>
+                    {
 
+                    });
                     break;
                 case 2://写M0
                     AnyIDReader.writeNDEFForM0(ccData, ndefType, ndefData1, ndefData2, obj =>
@@ -217,7 +233,7 @@ namespace NDEFReadWriteTool.Model
             return info;
         }
 
-        private NdefInfo readNdef(int tagType)
+        private NdefInfo readNdef()
         {
             NdefInfo ndefInfo = null;
             switch (tagType)
@@ -232,9 +248,22 @@ namespace NDEFReadWriteTool.Model
                     });
                     break;
                 case 1:
+                    AnyIDReader.readNDEFForM1(obj =>
+                    {
+                        ndefInfo = (NdefInfo)obj;
+                    }, msg =>
+                    {
 
+                    });
                     break;
                 case 2:
+                    AnyIDReader.readNDEFForM0(obj =>
+                    {
+                        ndefInfo = (NdefInfo)obj;
+                    }, msg =>
+                    {
+
+                    });
                     break;
             }
             return ndefInfo;
@@ -242,179 +271,179 @@ namespace NDEFReadWriteTool.Model
 
 
 
-        public async Task<bool> WriteUrlAsync(string ccData, string url)
-        {
-            return await Task.Run(() =>
-            {
-                bool bResult=false;
-                switch (tagType)
-                {
-                    case 0:
-                        bResult = writeUrlByIso15693(ccData, url);
-                        break;
-                    case 1:
-                        break;
-                    case 2:
+        //public async Task<bool> WriteUrlAsync(string ccData, string url)
+        //{
+        //    return await Task.Run(() =>
+        //    {
+        //        bool bResult=false;
+        //        switch (tagType)
+        //        {
+        //            case 0:
+        //                bResult = writeUrlByIso15693(ccData, url);
+        //                break;
+        //            case 1:
+        //                break;
+        //            case 2:
                         
-                        break;
-                }
-                return bResult;                
-            });
-        }
+        //                break;
+        //        }
+        //        return bResult;                
+        //    });
+        //}
 
-        private bool writeUrlByIso15693(string ccData,string ndefStr)
-        {
-            int step = 0;
-            bool bResult = false;
-            bool bContinue = true;
-            NdefInfo ndefInfo = new NdefInfo();
-            ndefInfo.Cc = ccData;
-            ndefInfo.NdefData = ndefStr;
-            while (bContinue)
-            {
-                switch (step)
-                {
-                    case 0://
-                        AnyIDReader.getUidFor15693(obj =>
-                        {
-                            ndefInfo.Uid=obj.ToString();
-                            step++;
-                        }, msg =>
-                        {
-                            bContinue = false;
-                        });
-                        break;
-                    case 1:
-                        bContinue = false;
-                        AnyIDReader.writeNDEFFor15693(ccData, 0, ndefStr,"", obj =>
-                        {
-                            bResult = true;
-                            OnInfoReturn?.Invoke(ndefInfo, 0);
-                        }, msg =>
-                        {
+        //private bool writeUrlByIso15693(string ccData,string ndefStr)
+        //{
+        //    int step = 0;
+        //    bool bResult = false;
+        //    bool bContinue = true;
+        //    NdefInfo ndefInfo = new NdefInfo();
+        //    ndefInfo.Cc = ccData;
+        //    ndefInfo.NdefData = ndefStr;
+        //    while (bContinue)
+        //    {
+        //        switch (step)
+        //        {
+        //            case 0://
+        //                AnyIDReader.getUidFor15693(obj =>
+        //                {
+        //                    ndefInfo.Uid=obj.ToString();
+        //                    step++;
+        //                }, msg =>
+        //                {
+        //                    bContinue = false;
+        //                });
+        //                break;
+        //            case 1:
+        //                bContinue = false;
+        //                AnyIDReader.writeNDEFFor15693(ccData, 0, ndefStr,"", obj =>
+        //                {
+        //                    bResult = true;
+        //                    OnInfoReturn?.Invoke(ndefInfo, 0);
+        //                }, msg =>
+        //                {
                             
-                        });
-                        break;
-                }
-            }
-            return bResult;
-        }
+        //                });
+        //                break;
+        //        }
+        //    }
+        //    return bResult;
+        //}
 
-        private bool writeVCardByIso15693(string ccData, string wifiName,string passwordStr)
-        {
-            int step = 0;
-            bool bResult = false;
-            bool bContinue = true;
-            NdefInfo ndefInfo = new NdefInfo();
-            ndefInfo.Cc = ccData;
-            ndefInfo.NdefData = wifiName;
-            ndefInfo.NdefData2= passwordStr;
-            while (bContinue)
-            {
-                switch (step)
-                {
-                    case 0://
-                        AnyIDReader.getUidFor15693(obj =>
-                        {
-                            ndefInfo.Uid = obj.ToString();
-                            step++;
-                        }, msg =>
-                        {
-                            bContinue = false;
-                        });
-                        break;
-                    case 1:
-                        bContinue = false;
-                        AnyIDReader.writeNDEFFor15693(ccData, 2, wifiName,passwordStr, obj =>
-                        {
-                            bResult = true;
-                            OnInfoReturn?.Invoke(ndefInfo, 0);
-                        }, msg =>
-                        {
+        //private bool writeVCardByIso15693(string ccData, string wifiName,string passwordStr)
+        //{
+        //    int step = 0;
+        //    bool bResult = false;
+        //    bool bContinue = true;
+        //    NdefInfo ndefInfo = new NdefInfo();
+        //    ndefInfo.Cc = ccData;
+        //    ndefInfo.NdefData = wifiName;
+        //    ndefInfo.NdefData2= passwordStr;
+        //    while (bContinue)
+        //    {
+        //        switch (step)
+        //        {
+        //            case 0://
+        //                AnyIDReader.getUidFor15693(obj =>
+        //                {
+        //                    ndefInfo.Uid = obj.ToString();
+        //                    step++;
+        //                }, msg =>
+        //                {
+        //                    bContinue = false;
+        //                });
+        //                break;
+        //            case 1:
+        //                bContinue = false;
+        //                AnyIDReader.writeNDEFFor15693(ccData, 2, wifiName,passwordStr, obj =>
+        //                {
+        //                    bResult = true;
+        //                    OnInfoReturn?.Invoke(ndefInfo, 0);
+        //                }, msg =>
+        //                {
 
-                        });
-                        break;
-                }
-            }
-            return bResult;
-        }
+        //                });
+        //                break;
+        //        }
+        //    }
+        //    return bResult;
+        //}
 
-        private NdefInfo readUrlByIso15693()
-        {
-            int step = 0;
-            NdefInfo ndefInfo = null;
-            bool bContinue = true;
-            while (bContinue)
-            {
-                switch (step)
-                {
-                    case 0://
-                        AnyIDReader.getUidFor15693(obj =>
-                        {
-                            step++;
-                        }, msg =>
-                        {
-                            bContinue = false;
-                        });
-                        break;
-                    case 1:
-                        bContinue = false;
-                        AnyIDReader.readNDEFFor15693(obj =>
-                        {
-                            ndefInfo = (NdefInfo) obj;                           
-                        }, msg =>
-                        {
+        //private NdefInfo readUrlByIso15693()
+        //{
+        //    int step = 0;
+        //    NdefInfo ndefInfo = null;
+        //    bool bContinue = true;
+        //    while (bContinue)
+        //    {
+        //        switch (step)
+        //        {
+        //            case 0://
+        //                AnyIDReader.getUidFor15693(obj =>
+        //                {
+        //                    step++;
+        //                }, msg =>
+        //                {
+        //                    bContinue = false;
+        //                });
+        //                break;
+        //            case 1:
+        //                bContinue = false;
+        //                AnyIDReader.readNDEFFor15693(obj =>
+        //                {
+        //                    ndefInfo = (NdefInfo) obj;                           
+        //                }, msg =>
+        //                {
 
-                        });
-                        break;
-                }
-            }
-            return ndefInfo;
-        }
+        //                });
+        //                break;
+        //        }
+        //    }
+        //    return ndefInfo;
+        //}
 
-        public Task<bool> ReadUrlAsync()
-        {
-            return Task.Run(() =>
-            {
-                NdefInfo ndefInfo = null;
-                switch (tagType)
-                {
-                    case 0:
-                        ndefInfo = readUrlByIso15693();
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                }
-                if (ndefInfo != null)
-                {
-                    OnInfoReturn?.Invoke(ndefInfo, 0);
-                    return true;
-                }
-                return false;
-            });
-        }
+        //public Task<bool> ReadUrlAsync()
+        //{
+        //    return Task.Run(() =>
+        //    {
+        //        NdefInfo ndefInfo = null;
+        //        switch (tagType)
+        //        {
+        //            case 0:
+        //                ndefInfo = readUrlByIso15693();
+        //                break;
+        //            case 1:
+        //                break;
+        //            case 2:
+        //                break;
+        //        }
+        //        if (ndefInfo != null)
+        //        {
+        //            OnInfoReturn?.Invoke(ndefInfo, 0);
+        //            return true;
+        //        }
+        //        return false;
+        //    });
+        //}
 
-        public async Task<bool> WriteVCardAsync(string ccData, string vCard)
-        {
-            return await Task.Run(() =>
-            {
-                bool bResult = false;
-                switch (tagType)
-                {
-                    case 0:
-                     //   bResult = writeVCardByIso15693(ccData, vCard);
-                        break;
-                    case 1:
-                        break;
-                    case 2:
+        //public async Task<bool> WriteVCardAsync(string ccData, string vCard)
+        //{
+        //    return await Task.Run(() =>
+        //    {
+        //        bool bResult = false;
+        //        switch (tagType)
+        //        {
+        //            case 0:
+        //             //   bResult = writeVCardByIso15693(ccData, vCard);
+        //                break;
+        //            case 1:
+        //                break;
+        //            case 2:
 
-                        break;
-                }
-                return bResult;
-            });
-        }
+        //                break;
+        //        }
+        //        return bResult;
+        //    });
+        //}
 
     }
 }
